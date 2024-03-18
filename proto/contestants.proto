@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package contestants;
+
+import "google/protobuf/empty.proto";
+
+message Contestant {
+  string id = 1;
+  string school_name = 2;
+  string dance_number = 3;
+  int32 votes = 4;
+  string last_voted_by = 5;
+}
+
+service ContestantService {
+  rpc GetSyncedData(google.protobuf.Empty) returns (stream Contestant);
+}
